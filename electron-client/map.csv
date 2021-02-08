@@ -1,0 +1,11 @@
+Name,CAN ID,Byte number,Bit number,Length,CAN min,CAN max,MIDI CC,MIDI min,MIDI max
+TSA_Disp_Rq2_Data1,01F,1,4,12,0,4095,1,0,127
+DrowWarn_Rq,01F,4,0,10,0,1023,2,0,127
+VehSpd_Disp,02F,1,0,8,0,255,3,0,127
+VehAccel_X_V2,03F,7,0,4,0,15,4,32,96
+AmbLgtCmd,03F,7,4,4,0,15,5,0,127
+AirTemp_Outsd,04F,1,0,8,0,255,6,0,127
+
+
+
+

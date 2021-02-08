@@ -1,0 +1,45 @@
+.control-button {
+  padding: .75em;
+}
+
+#controls {
+  border-bottom: solid 1px #a8a8a8;
+  margin-bottom: 1em;
+  padding: 1em;
+}
+
+.map-container {
+  height: 360px;
+  overflow-y: auto;
+}
+
+thead > tr {
+  font-weight: bold;
+}
+
+#connection-status {
+  font-weight: bold;
+  padding: 2px;
+}
+
+select {
+  padding: 1px 6px;
+  width: 200px;
+}
+
+.connected {
+  color: green;
+}
+
+.disconnected {
+  color: red;
+}
+
+header h1 {
+  color: white;
+}
+
+.small {
+  font-size: 10px;
+  color: darkgray;
+}

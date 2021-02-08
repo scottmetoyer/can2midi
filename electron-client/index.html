@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CAN2MIDI</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/nativize.css">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+
+<body>
+    <header>
+        <h1>CAN2MIDI</h1>
+    </header>
+    <div id="main">
+        <article>
+            <div id="controls">
+                <label>MIDI device:</label>
+                <select id="midi-devices" style="width: 160px;">
+                </select>&nbsp;
+                <label>Socketcand server:</label>
+                <input type="text" id="socketcand-server" value="192.168.10.2" style="width: 120px;"/>&nbsp;
+                <label>CAN prefix:</label>
+                <input type="text" id="can-prefix" value="can" style="width: 50px;"/>&nbsp;
+                <button id="toggle-stream">
+                    Start streaming
+                </button>&nbsp;
+                <span id="stream-status" class="disconnected">STANDBY</span>
+            </div>
+            <div class="map-container">
+                <table id="map-table">
+                    <thead>
+                        <tr>
+                            <td>
+                                Name
+                            </td>
+                            <td>
+                                CAN ID
+                            </td>
+                            <td>
+                                Byte #
+                            </td>
+                            <td>
+                                Bit #
+                            </td>
+                            <td>
+                                Length
+                            </td>
+                            <td>
+                                CAN Min
+                            </td>
+                            <td>
+                                CAN Max
+                            </td>
+                            <td>
+                                MIDI CC
+                            </td>
+                            <td>
+                                MIDI Min
+                            </td>
+                            <td>
+                                MIDI Max
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </article>
+        </article>
+    </div>
+    <footer>
+        <button id="load-map-file" class="control-button">Load map file</button>
+    </footer>
+
+    <script type="text/javascript" src="./window.js"></script>
+</body>
+
+</html>
