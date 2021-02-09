@@ -67,7 +67,7 @@ function subscribeToCanEvents(socket) {
     var canId = mapValues[i]["CAN ID"];
     var name =  mapValues[i]["Name"];
     console.log("Subscribing to " + name + " on " + canId)
-    socket.write('< subscribe 0 0 ' + canId + ' >');
+    socket.write('< subscribe 0 10000 ' + canId + ' >');
   }
 }
 
