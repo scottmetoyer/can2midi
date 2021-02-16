@@ -15,7 +15,7 @@ const {
   connected
 } = require('process');
 
-const version = "1.0.1"
+const version = "1.0.2"
 const loadMapFileButton = document.getElementById('load-map-file')
 const saveMapFileButton = document.getElementById('save-map-file')
 const midiDeviceSelector = document.getElementById('midi-devices')
@@ -25,6 +25,10 @@ const canPrefix = document.getElementById('can-prefix');
 const streamStatus = document.getElementById('stream-status')
 
 const scale = (num, in_min, in_max, out_min, out_max) => {
+  // Bounds checking
+  if (num > in_max) num = in_max;
+  if (num < in_min) num = in_min;
+
   return (num - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
 
