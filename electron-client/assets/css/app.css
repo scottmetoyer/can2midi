@@ -9,8 +9,8 @@
 }
 
 .map-container {
-  height: 360px;
   overflow-y: auto;
+  height: 560px;
 }
 
 thead > tr {
