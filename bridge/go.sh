@@ -10,7 +10,7 @@ sudo ip link set can2 type can bitrate 125000
 sudo ip link set can2 up
 
 sudo ip link set can3 type can bitrate 125000
-sudo ip link set can4 up
+sudo ip link set can3 up
 
 # Start recording the CAN data
 candump -l can0 &

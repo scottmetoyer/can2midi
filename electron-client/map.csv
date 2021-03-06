@@ -19,3 +19,8 @@ DateTmMonth,30B,5,0,8,1,12,17,0,127
 AirTemp_Outsd,339,3,0,8,0,250,18,0,127
 DrowWarn_Rq,499,4,2,3,0,3,19,0,127
 DrowDtct_Actv,499,4,6,1,0,1,20,0,127
+DateTmSecond,30B,3,0,8,0,59,16,0,127
+DateTmMonth,30B,5,0,8,1,12,17,0,127
+AirTemp_Outsd,339,3,0,8,0,250,18,0,127
+DrowWarn_Rq,499,4,2,3,0,3,19,0,127
+DrowDtct_Actv,499,4,6,1,0,1,20,0,127
