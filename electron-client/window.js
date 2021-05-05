@@ -15,7 +15,7 @@ const {
   connected
 } = require('process');
 
-const version = "1.0.2"
+const version = "1.0.3"
 const loadMapFileButton = document.getElementById('load-map-file')
 const saveMapFileButton = document.getElementById('save-map-file')
 const midiDeviceSelector = document.getElementById('midi-devices')
@@ -82,7 +82,8 @@ function parseCanData(buffer, byteIndex, bitIndex, bitLength) {
   if (bits > 8) {
     // The value is encoded across 2 bytes
     var position = 8 - bitIndex
-    value = (buffer[byteIndex] & bitmask(position)) << (bitLength - position) | buffer[byteIndex + 1] >> (8 - (bitLength - position))
+    // value = (buffer[byteIndex] & bitmask(position)) << (bitLength - position) | buffer[byteIndex + 1] >> (8 - (bitLength - position))
+    value = (buffer[byteIndex + 1] & bitmask(bitLength - position)) << position | (buffer[byteIndex] & bitmask(position));
   } else {
     // The value is encoded in one byte
     value = buffer[byteIndex] >> (8 - bits) & bitmask(bitLength)
@@ -107,6 +108,8 @@ function processCanFrame(data) {
   for (var i = 0; i < map.length; i++) {
     // Byte number is 1 based
     var byteNumber = map[i]["Byte number"] - 1;
+    var bus = map[i]["Bus"]
+
     if (byteNumber < buffer.length) {
       var value = parseCanData(buffer, byteNumber, map[i]["Bit number"], map[i]["Length"]);
 
@@ -120,7 +123,8 @@ function processCanFrame(data) {
   }
 }
 
-function createSocketInstance(canBusId) {
+function createSocketInstance(canIndex) {
+  var canBusId = canPrefix.value + canIndex;
   var server = socketcandServerInput.value.trim();
   var socketClient = net.connect({
     host: server,
@@ -142,7 +146,7 @@ function createSocketInstance(canBusId) {
         break;
 
       default:
-        processCanFrame(data)
+        processCanFrame(data, canIndex)
         break;
     }
   });
@@ -210,7 +214,7 @@ function toggleStream() {
     streamStatus.innerText = "CONNECTING..."
 
     for (var i = 0; i < socketInstanceCount; i++) {
-      createSocketInstance(canPrefix.value + i);
+      createSocketInstance(i);
     }
   } else {
     stopStream();
